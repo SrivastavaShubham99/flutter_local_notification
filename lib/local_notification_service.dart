@@ -51,9 +51,9 @@ class NotificationService {
     'channel name',
     playSound: true,
     styleInformation: BigPictureStyleInformation(
-        DrawableResourceAndroidBitmap("app_icon")),
-    icon: 'app_icon',
-    largeIcon: DrawableResourceAndroidBitmap('app_icon'),
+        DrawableResourceAndroidBitmap("activity_indicator")),
+    icon: 'activity_indicator',
+    largeIcon: DrawableResourceAndroidBitmap('activity_indicator'),
     priority: Priority.high,
     importance: Importance.high,
   );

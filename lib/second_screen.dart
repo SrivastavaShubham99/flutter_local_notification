@@ -45,23 +45,29 @@ class _SecondScreenState extends State<SecondScreen> {
           child: BlocBuilder(
             bloc: jsonPlaceHolderBloc,
             builder: (BuildContext context, state) {
-              return filterList.isNotEmpty ? Column(
+              return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 60),
                   searchField(onChangeText: (value){
                     updateList(value);
                   }),
-                  Expanded(
+                  filterList.isNotEmpty ? Expanded(
                     child: ListView.builder(
                       itemCount: filterList.isEmpty ? 0 : filterList.length,
                       shrinkWrap: true,
                       itemBuilder: (BuildContext context, int index) {
                         return listContent(filterList[index]);
                       }),
-                  )
+                  ) : Container(
+                      margin: const EdgeInsets.only(top: 21),
+                      child: const Text("Nothing Found!!",style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.redAccent,
+                        fontWeight: FontWeight.w600
+                      ),))
                 ],
-              ) : Container();
+              ) ;
             },
           )),
     );
